@@ -27,6 +27,8 @@
     "not op_mini all"
   ],
   "husky": {
-    "pre-commit": "yarn lint"
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
   }
 }
