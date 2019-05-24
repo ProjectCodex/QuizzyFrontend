@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useReducer, createContext, useContext } from 'react';
 import styled from 'styled-components';
+import Header from './Header.jsx';
+import {AuthProvider, useAuth} from './providers/auth-context';
+import LoginPage from './pages/login/login';
+import './App.css';
 
-const Div = styled.div`
-    background: red;
-    color: white;
-`;
+const App = () => {
 
-const App = () => <Div className="App">Banana</Div>;
+    return (
+        <div>
+            <AuthProvider>
+                <Header />
+                {/* <LoginButton/> */}
+                <LoginPage/>
+            </AuthProvider>
+        </div>
+    )
+}
 
 export default App;
