@@ -12,15 +12,21 @@ const LoginForm = styled.form`
 const LoginPage = props => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { isLoggedIn, setLoggedIn, login } = useAuthContext();
+  const { isLoggedIn, logout, login } = useAuthContext(); // Here
 
-  const fireLogin = event => {
-      event.preventDefault();
-    login(username, password);
+  const fireLogin = async event => {
+    event.preventDefault();
+    if (!isLoggedIn) {
+      await login(username, password);
+      setPassword("");
+      setUsername("");
+    } else {
+      logout()
+    }
   };
 
   return (
-      <LoginForm onSubmit={fireLogin}>
+    <LoginForm onSubmit={fireLogin}>
       <TextField
         label="username"
         inputValue={username}

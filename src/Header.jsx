@@ -7,7 +7,7 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-    const [isLoggedIn, setLoggedIn] = useAuthContext()
+    const {isLoggedIn} = useAuthContext()
     return (
         <StyledHeader>{isLoggedIn ? 'Welcome Back!' : 'Please Log In'}</StyledHeader>
 

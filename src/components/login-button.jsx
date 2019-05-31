@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useAuthContext } from '../providers/auth-context';
 
 const LoginButton = (props) => {
-    const [isLoggedIn, setLoggedIn] = useAuthContext()
+    const {isLoggedIn} = useAuthContext()
 
     const Button = styled.button`
         color: rebeccapurple;
@@ -21,7 +21,7 @@ const LoginButton = (props) => {
     `
 
     return (
-        <Button onClick={() => setLoggedIn(!isLoggedIn)}>
+        <Button>
             {isLoggedIn ? 'Logout' : 'Login'}
         </Button>
     )
